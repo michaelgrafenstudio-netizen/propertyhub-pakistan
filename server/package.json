@@ -1,4 +1,6 @@
-{
+{"engines": {
+  "node": "20.x"
+},
   "name": "propertyhub-pakistan-server",
   "version": "1.0.0",
   "description": "PropertyHub Pakistan Backend Server",
