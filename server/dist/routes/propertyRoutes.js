@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const propertyController_1 = require("../controllers/propertyController");
+const auth_1 = require("../middleware/auth");
+const router = (0, express_1.Router)();
+router.post('/', auth_1.authenticateJWT, propertyController_1.createProperty);
+router.get('/', propertyController_1.getProperties);
+router.get('/favorites', auth_1.authenticateJWT, propertyController_1.getFavorites);
+router.get('/recommendations', propertyController_1.getRecommendations);
+router.get('/:id', propertyController_1.getPropertyById);
+router.put('/:id', auth_1.authenticateJWT, propertyController_1.updateProperty);
+router.delete('/:id', auth_1.authenticateJWT, propertyController_1.deleteProperty);
+router.post('/favorite/toggle', auth_1.authenticateJWT, propertyController_1.toggleFavorite);
+exports.default = router;
